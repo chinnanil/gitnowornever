@@ -3,6 +3,7 @@ package org.selenium.factory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.selenium.pom.constants.BrowserType;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -12,14 +13,15 @@ public class Factory {
 //}
 
 public WebDriver initDriver() {
-	String browser = System.getProperty("browser");
+//	String browser =  System.getProperty("browser");
+	String browser ="CHROME";
 	WebDriver driver;
-	switch(browser) {
-	case "chrome" :
+	switch(BrowserType.valueOf("FIREFOX")) {
+	case CHROME :
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		break;
-	case "firefox":
+	case FIREFOX:
 		WebDriverManager.firefoxdriver().setup();
 		driver=new FirefoxDriver();
 		break;
